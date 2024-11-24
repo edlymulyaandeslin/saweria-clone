@@ -6,12 +6,12 @@ import Hero from "@/Components/welcome/Hero";
 import AppLayout from "@/Layouts/AppLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
+export default function Welcome({ auth }) {
     return (
         <AppLayout>
             <Head title="Connecting Communities, Empowering Streamers" />
 
-            <Hero />
+            <Hero user={auth.user} />
 
             <CardPayment />
 
