@@ -15,7 +15,7 @@ export default function Welcome({ auth }) {
 
             <CardPayment />
 
-            <CardRegister />
+            <CardRegister user={auth.user} />
 
             <CardPricing />
 
