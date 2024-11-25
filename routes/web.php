@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\IntegrationController;
+use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\OverlayController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -31,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get("overlays", [OverlayController::class, "index"])->name("overlays.index");
+    Route::get("transactions", [TransactionController::class, "index"])->name("transactions.index");
+    Route::get("transactions/outgoing", [OutgoingController::class, "index"])->name("outgoing.index");
+    Route::get("integration", [IntegrationController::class, "index"])->name("integration.index");
 });
 
 require __DIR__ . '/auth.php';

@@ -13,7 +13,7 @@ import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
 import { useState } from "react";
 
-export default function Index() {
+export default function Overlay() {
     const [open, setOpen] = useState("alert");
 
     const handleOpen = (menu) => {
