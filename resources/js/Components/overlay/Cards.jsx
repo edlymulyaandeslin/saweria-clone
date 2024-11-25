@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function Cards({ className, children }) {
+export default function Cards({ className = "", children }) {
     return (
         <div
             className={clsx(

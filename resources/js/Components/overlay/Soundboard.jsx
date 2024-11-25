@@ -5,132 +5,63 @@ import ToggleButton from "../ToggleButton";
 import Cards from "./Cards";
 import Url from "./atom/Url";
 
-export default function AlertContent() {
+export default function Soundboard() {
     return (
         <div>
             <p>
-                Pasang overlay ini untuk mendapatkan notifikasi saat ada
-                dukungan yang masuk
+                Gunakan overlay ini untuk membolehkan penontonmu mengirimkan
+                suara untuk dimainkan pada streammu.
             </p>
             <div className="mb-8">
-                <Cards className={"space-y-4"}>
-                    <h1 className="text-xl">Aturan Alert:</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="flex flex-col space-y-1">
-                            <label htmlFor="gif">Nyalakan gif</label>
-                            <input
-                                type="checkbox"
-                                id="gif"
-                                className="border-2 rounded"
-                                defaultChecked
-                            />
-                        </div>
-                        <div className="flex flex-col space-y-1">
-                            <label htmlFor="textspeech">
-                                Varian suara Text To Speech:
-                            </label>
-                            <select
-                                name="textspeech"
-                                id="textspeech"
-                                className="border-none focus:ring-0"
-                                defaultValue={"1"}
-                            >
-                                <option value="1">Fastest</option>
-                                <option value="2">Fast</option>
-                                <option value="3">Medium</option>
-                                <option value="4">Slow</option>
-                            </select>
-                            <hr className="border-black" />
-                        </div>
+                <Cards className={"space-y-2"}>
+                    <h1 className="text-xl">Pengaturan Soundboard:</h1>
+                    <div className="flex flex-col space-y-1">
+                        <label htmlFor="soundboard">Aktifkan soundboard.</label>
+                        <input
+                            type="checkbox"
+                            id="soundboard"
+                            className="border-2 rounded"
+                            defaultChecked
+                        />
                     </div>
-
-                    <h1 className="text-xl">Aturan minimum:</h1>
-                    <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
-                        <div className="flex flex-col space-y-1">
-                            <label htmlFor="alertnotip">
-                                Alert notifikasi:
-                            </label>
-                            <div>
-                                <span>Rp</span>
-                                <input
-                                    type="text"
-                                    id="alertnotip"
-                                    className="border-none focus:ring-0 focus:ring-b"
-                                    value={10000}
-                                />
-                            </div>
-                            <hr className="border-black" />
-                        </div>
-                        <div className="flex flex-col space-y-1">
-                            <label htmlFor="mediashare">
-                                GIF / media share:
-                            </label>
-                            <div>
-                                <span>Rp</span>
-                                <input
-                                    type="text"
-                                    id="mediashare"
-                                    className="border-none focus:ring-0 focus:ring-b"
-                                    value={10000}
-                                />
-                            </div>
-                            <hr className="border-black" />
-                        </div>
-                        <div className="flex flex-col space-y-1">
-                            <label htmlFor="textspeechs">Text To Speech:</label>
-                            <div>
-                                <span>Rp</span>
-                                <input
-                                    type="text"
-                                    id="textspeechs"
-                                    className="border-none focus:ring-0 focus:ring-b"
-                                    value={25000}
-                                />
-                            </div>
-                            <hr className="border-black" />
-                        </div>
-                    </div>
-
-                    <PrimaryButton>Simpan Aturan</PrimaryButton>
+                    <PrimaryButton>Simpan</PrimaryButton>
                 </Cards>
             </div>
 
             <div className="my-8">
-                <Cards className={"space-y-4"}>
-                    <h1 className="text-xl">Suara Notifikasi Alert:</h1>
-                    <div className="flex justify-between">
-                        <div className="flex flex-col w-full space-y-1">
+                <Cards className={"space-y-2"}>
+                    <h1 className="text-xl">Suara Soundboard:</h1>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div className="flex flex-col">
+                            <label htmlFor="">Name</label>
                             <input
                                 type="text"
                                 className="border-none focus:ring-0"
-                                value={"default"}
                             />
                             <hr className="border-black" />
                         </div>
+                        <div className="flex flex-col">
+                            <label htmlFor="">Harga</label>
+                            <div>
+                                <span>Rp</span>
+                                <input
+                                    type="text"
+                                    className="border-none focus:ring-0"
+                                />
+                            </div>
+                            <hr className="border-black" />
+                        </div>
 
-                        <div className="flex items-center w-full max-w-60">
-                            <PrimaryButton className="flex items-center justify-center w-full">
-                                Ganti Suara
-                            </PrimaryButton>
+                        <div className="flex flex-col col-span-2 gap-2">
+                            <label htmlFor="">File (.mp3, .ogg, .wav)</label>
+                            <input
+                                type="file"
+                                className="border-none focus:ring-0"
+                            />
+                            <hr className="border-black" />
                         </div>
                     </div>
-                </Cards>
-            </div>
-
-            <div className="my-8">
-                <Cards>
-                    <h1 className="text-xl">Filter kata:</h1>
-                    <p className="text-lg">
-                        Pesan dukungan dan nama pendukung tidak akan ditampilkan
-                        jika mengandung kata-kata dibawah ini. Pisahkan kata
-                        dengan spasi.
-                    </p>
-                    <textarea
-                        rows={6}
-                        className="w-full border-2 border-black"
-                    ></textarea>
-
-                    <PrimaryButton>Simpan Kata</PrimaryButton>
+                    <PrimaryButton>Tambah</PrimaryButton>
                 </Cards>
             </div>
 
@@ -142,9 +73,9 @@ export default function AlertContent() {
                 >
                     <h1 className="text-4xl text-center">
                         <span className="text-purple-600">Mumu</span> baru saja
-                        memberikan
-                        <span className="text-purple-600">Rp10.000</span>{" "}
-                        Semangat ya kamu 😘
+                        memberikan{" "}
+                        <span className="text-purple-600">Rp10.000</span>
+                        <br /> Bonk 🎵 <br /> Semangat ya kamu 😘
                     </h1>
                 </Cards>
             </div>
@@ -235,15 +166,6 @@ export default function AlertContent() {
                             <hr className="border-black" />
                         </div>
                         <div className="my-2 space-y-2">
-                            <h4>Durasi Notifikasi (ms):</h4>
-                            <input
-                                type="text"
-                                className="border-none focus:ring-0"
-                                value={5000}
-                            />
-                            <hr className="border-black" />
-                        </div>
-                        <div className="my-2 space-y-2">
                             <h4>Font Isi:</h4>
                             <select
                                 className="w-full border-none focus:ring-0"
@@ -265,7 +187,7 @@ export default function AlertContent() {
             <div className="my-8">
                 <Url
                     url={
-                        "https://saweria.co/widgets/alert?streamKey=69cd4703cacfb84eab7fa7fc2151f2fc"
+                        "https://saweria.co/widgets/soundboard?streamKey=69cd4703cacfb84eab7fa7fc2151f2fc"
                     }
                 />
             </div>

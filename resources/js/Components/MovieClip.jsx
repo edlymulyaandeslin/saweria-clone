@@ -1,11 +1,9 @@
-"use client";
-
 import YouTube from "react-youtube";
 
-export default function MovieClip({ videoId }) {
+export default function MovieClip({ videoId, width = "640", height = "390" }) {
     const options = {
-        height: "390",
-        width: "640",
+        height: height,
+        width: width,
     };
 
     return (
